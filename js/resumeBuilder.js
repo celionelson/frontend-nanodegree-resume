@@ -1,5 +1,5 @@
 var name = "Celio Nelson";
-var role = "Web Developper";
+var role = "Web Developer";
 
 var formattedName = HTMLheaderName.replace("%data%", name);
 
