@@ -1,15 +1,15 @@
 var bio = {
 	"name" : "Celio NELSON",
-	"role" : "Web Developer",
+	"role" : "Administrator / Project Manager / Implementer",
 	"contact" : {
 		"mobile" : "+336 4740 7660",
 		"email" : "celio.nelson@icloud.com",
 		"github" : "celionelson",
-		"linkedin" : "link with logo", /* "https://www.linkedin.com/pub/celio-nelson/54/689/4b0/fr", */
-		"location" : "France"},
-	"bioPic" : "images/197x148.gif",
-	"welcomeMsg" : "Hey, guys! Welcome there",
-	"skills" : ["skill1", "skill2", "skill3"]
+		"linkedin" : "<a href='https://www.linkedin.com/pub/celio-nelson/54/689/4b0/fr'>my profile</a>",
+		"location" : "USA"},
+	"bioPic" : "images/bioPic.png",
+	"welcomeMsg" : "Welcome there !",
+	"skills" : ["project management", "administration", "logistics", "buildings automation", "programming"]
  };
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -25,6 +25,8 @@ var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMsg);
 var formattedSkill1 = HTMLskills.replace("%data%", bio.skills[0]);
 var formattedSkill2 = HTMLskills.replace("%data%", bio.skills[1]);
 var formattedSkill3 = HTMLskills.replace("%data%", bio.skills[2]);
+var formattedSkill4 = HTMLskills.replace("%data%", bio.skills[3]);
+var formattedSkill5 = HTMLskills.replace("%data%", bio.skills[4]);
 
 $("#topContacts").prepend(formattedLocation);
 $("#topContacts").prepend(formattedLinkedin);
@@ -39,6 +41,8 @@ $("#header").append(HTMLskillsStart);
 $("#header").append(formattedSkill1);
 $("#header").append(formattedSkill2);
 $("#header").append(formattedSkill3);
+$("#header").append(formattedSkill4);
+$("#header").append(formattedSkill5);
 
 
 
