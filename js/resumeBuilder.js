@@ -12,37 +12,96 @@ var bio = {
 	"skills" : ["project management", "administration", "logistics", "buildings automation", "programming"]
  };
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contact);
-var formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
-var formattedGithub = HTMLgithub.replace("%data%", bio.contact.github);
-var formattedLinkedin = HTMLlinkedin.replace("%data%", bio.contact.linkedin)
-var formattedLocation = HTMLlocation.replace("%data%", bio.contact.location);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMsg);
-var formattedSkill1 = HTMLskills.replace("%data%", bio.skills[0]);
-var formattedSkill2 = HTMLskills.replace("%data%", bio.skills[1]);
-var formattedSkill3 = HTMLskills.replace("%data%", bio.skills[2]);
-var formattedSkill4 = HTMLskills.replace("%data%", bio.skills[3]);
-var formattedSkill5 = HTMLskills.replace("%data%", bio.skills[4]);
+var work = {
+	"positions" : [
+		{
+			"employer" : "International NGO",
+			"title" : "Administrator/Logistician",
+			"dates" : "Jul 2011 to Jun 2014",
+			"location" : "Southern Laos",
+			"Description" : "Christian Swiss-French NGO working in Medical Cooperation and Rural Development in Laos"
+		},
+		{
+			"employer" : "ISS FM Services",
+			"title" : "Key Account Manager/Team Leader",
+			"dates" : "May 2010 to May 2011",
+			"location" : "Geneva, Switzerland",
+			"Description" : "Customer relations (leading banks and companies, private clients in Geneva), Team leadership, Facility Management building contracts management, Mandate implementation, Project management according to clients' requests."
+		},
+		{
+			"employer" : "Cofely GDF-SUEZ",
+			"title" : "Project Manager in Buildings Automation",
+			"dates" : "Jan 2008 to Apr 2010",
+			"location" : "Geneva, Switzerland",
+			"Description" : "Project management, Procedures and tools elaboration, HVAC Electrical schemes conception and drawing, Programming conception for automatons Saia Burgess, Software commissioning of installations (Ventilation, heating, air conditioning)."
+		}
+	]
+};
 
-$("#topContacts").prepend(formattedLocation);
-$("#topContacts").prepend(formattedLinkedin);
-$("#topContacts").prepend(formattedGithub);
-$("#topContacts").prepend(formattedEmail);
-$("#topContacts").prepend(formattedMobile);
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedBioPic);
-$("#header").append(formattedWelcomeMsg);
-$("#header").append(HTMLskillsStart);
-$("#header").append(formattedSkill1);
-$("#header").append(formattedSkill2);
-$("#header").append(formattedSkill3);
-$("#header").append(formattedSkill4);
-$("#header").append(formattedSkill5);
+var education = {
+	"schools" : [
+		{
+			"name" : "University of Marne-la-Vallée",
+			"location" : "East of Paris, France",
+			"degree" : "BA",
+			"major" : "Energy and Thermal Engineering",
+			"dates" : "2005 - 2007",
+			"url" : "http://www.u-pem.fr"
+		},
+		{
+			"name" : "University of Paris-Est Créteil",
+			"location" : "Paris, France",
+			"degree" : "University Studies",
+			"major" : "Science of Matter",
+			"dates" : "2004 - 2005",
+			"url" : "http://www.u-pec.fr"
+		}
+	],
+	"onlineCourses" : [
+		{
+			"title" : "Introduction to Database by Jenifer Widom",
+			"school" : "Stanford University",
+			"dates" : 2013,
+			"url" : "https://class.stanford.edu/courses/Engineering/db/2014_1/about"
+		},
+		{
+			"title" : "Introduction to Computer Programming Using Python by Eric Grimson (6.00.1x, Verified)",
+			"school" : "edX, MIT University",
+			"dates" : 2014,
+			"url" : "https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-0#.VNeDEkLeuGQ"
+		},
+		{
+			"title" : "Intro to HTML and CSS",
+			"school" : "Udacity",
+			"dates" : 2015,
+			"url" : "https://www.udacity.com/course/ud304"
+		},
+		{
+			"title" : "How to Use Git and GitHub",
+			"school" : "Udacity",
+			"dates" : 2015,
+			"url" : "https://www.udacity.com/course/ud775"
+		},
+		{
+			"title" : "Javascript Basics",
+			"school" : "Udacity",
+			"dates" : 2015,
+			"url" : "https://www.udacity.com/course/ud804"
+		}
+	]
+};
+
+var projects = {
+	"nanoWebdev" : [
+		{
+			"title" : "Front-End Web Dev Nanodegree - P1 Mockup to Website"
+			"dates" : 2015,
+			"description" : "Provided with a design mockup as a PDF-file, I had to replicate that design in HTML and CSS. 
+			I developed a responsive website that displays images, descriptions and links.",
+			"url" : 
+		}
+	]
+};
 
 
 
