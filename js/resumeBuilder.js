@@ -98,7 +98,7 @@ var projects = {
 			"dates" : 2015,
 			"description" : "Provided with a design mockup as a PDF-file, I had to replicate that design in HTML and CSS. 
 			I developed a responsive website that displays images, descriptions and links.",
-			"url" : 
+			"url" : "https://github.com/celionelson/frontend-nanodegree-p1.git"
 		}
 	]
 };
