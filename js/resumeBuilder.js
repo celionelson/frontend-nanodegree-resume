@@ -1,32 +1,31 @@
 var bio = {
 	"name" : "Celio Nelson",
 	"role" : "Administrator / Project Manager / Learning Web Developer",
-	"contact" : {
+	"contacts" : {
 		"mobile" : "+336 4740 7660",
 		"email" : "celio.nelson@icloud.com",
 		"github" : "celionelson",
 		"linkedin" : "<a href='https://www.linkedin.com/pub/celio-nelson/54/689/4b0/fr'>my profile</a>",
-		"location" : "USA"},
+		"location" : "San Francisco, CA"},
 	"bioPic" : "images/bioPic.png",
 	"welcomeMsg" : "Welcome there !",
 	"skills" : ["project management", "administration", "logistics", "buildings automation", "programming"]
  };
 
-bio.display() = function() {
+bio.display = function() {
 
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-	var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contact);
-	var formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
-	var formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
-	var formattedGithub = HTMLgithub.replace("%data%", bio.contact.github);
-	var formattedLinkedin = HTMLlinkedin.replace("%data%", bio.contact.linkedin)
-	var formattedLocation = HTMLlocation.replace("%data%", bio.contact.location);
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	var formattedLinkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin)
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 	var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMsg);
 
 	$("#topContacts").prepend(formattedLocation);
-	$("#topContacts").prepend(formattedLinkedin);
+	// $("#topContacts").prepend(formattedLinkedin);
 	$("#topContacts").prepend(formattedGithub);
 	$("#topContacts").prepend(formattedEmail);
 	$("#topContacts").prepend(formattedMobile);
@@ -45,6 +44,12 @@ bio.display() = function() {
 			$("#header").append(formattedSkill);
 		}
 	};
+
+	$("#footerContacts").append(formattedMobile);
+	$("#footerContacts").append(formattedEmail);
+	$("#footerContacts").append(formattedGithub);
+	// $("#footerContacts").append(formattedLinkedin);
+	$("#footerContacts").append(formattedLocation);
 };
 
 bio.display();
@@ -55,7 +60,7 @@ var work = {
 			"employer" : "SFE",
 			"title" : "Administrator / Logistician",
 			"dates" : "Jul 2011 to Jun 2014",
-			"location" : "Southern Laos",
+			"location" : "Thateng, Laos",
 			"description" : "Christian Swiss-French NGO working in Medical Cooperation and Rural Development in Laos.<br>Managed Administration, Finances, Human Resources and Logistics of a Community Agriculture Development Project employing 13 local staff.<br>Supported the project's field activities and Directed baseline and endline surveys in the poor villages.<br>More globally in the NGO, provided Administrative support to the Head Office, IT Support and Management. Implemented new management tools for expatriate staff administrative procedures.",
 			"url" : ""
 		},
@@ -109,8 +114,16 @@ if(work.jobs.length > 0) {
 var education = {
 	"schools" : [
 		{
+			"name" : "Udacity",
+			"location" : "Mountain View, CA",
+			"degree" : "Online Nanodegree",
+			"major" : "Front-End Web Developer",
+			"dates" : "2015 - present",
+			"url" : "https://www.udacity.com/course/nd001"
+		},
+		{
 			"name" : "University of Marne-la-Vallée",
-			"location" : "East of Paris, France",
+			"location" : "Champs-sur-Marne (77), France",
 			"degree" : "BS",
 			"major" : "Energy and Thermal Engineering",
 			"dates" : "2005 - 2007",
@@ -118,7 +131,7 @@ var education = {
 		},
 		{
 			"name" : "University of Paris-Est Créteil",
-			"location" : "Paris, France",
+			"location" : "Créteil (94), France",
 			"degree" : "Studies",
 			"major" : "Science of Matter",
 			"dates" : "2004 - 2005",
@@ -134,7 +147,7 @@ var education = {
 		},
 		{
 			"title" : "Introduction to Computer Programming Using Python by Eric Grimson (6.00.1x, Verified)",
-			"school" : "edX, MIT University",
+			"school" : "edX, MIT",
 			"dates" : "2014",
 			"url" : "https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-0#.VNeDEkLeuGQ"
 		},
@@ -159,6 +172,62 @@ var education = {
 	]
 };
 
+education.displaySchool = function () {
+
+	for(school in education.schools) {
+
+		$("#education").append(HTMLschoolStart);
+
+		var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		formattedSchoolName = formattedSchoolName.replace("#", education.schools[school].url);
+		var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+
+		var formattedSchoolNameDegree = formattedSchoolName + formattedSchoolDegree;
+		$(".education-entry:last").append(formattedSchoolNameDegree);
+
+		var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		$(".education-entry:last").append(formattedSchoolDates);
+
+		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		$(".education-entry:last").append(formattedSchoolLocation);
+
+		var formattedSchoolMajor = HTMLschoolMajor.replace("Major: %data%", education.schools[school].major);
+		$(".education-entry:last").append(formattedSchoolMajor);
+	}
+};
+
+if(education.schools.length > 0) {
+	education.displaySchool();
+};
+
+education.displayOnline = function () {
+
+	$("#education").append(HTMLonlineClasses);
+	
+	for(online in education.onlineCourses) {
+
+		$("#education").append(HTMLschoolStart);
+
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title);
+		formattedOnlineTitle = formattedOnlineTitle.replace("#", education.onlineCourses[online].url);
+		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[online].school);
+
+		var formattedOnlineTitleSchool = formattedOnlineTitle + formattedOnlineSchool;
+		$(".education-entry:last").append(formattedOnlineTitleSchool);
+
+		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[online].dates);
+		$(".education-entry:last").append(formattedOnlineDates);
+
+		var formattedOnlineURL = HTMLonlineURL.replace("%data%", " ");
+		//formattedOnlineURL = formattedOnlineURL.replace("#", education.onlineCourses[online].url);
+		$(".education-entry:last").append(formattedOnlineURL);
+	}
+};
+
+if(education.onlineCourses.length > 0) {
+	education.displayOnline();
+};
+
 var projects = {
 	"projects" : [
 		{
@@ -166,7 +235,7 @@ var projects = {
 			"dates" : "2015",
 			"description" : "Provided with a design mockup as a PDF-file, I had to replicate that design in HTML and CSS. I developed a responsive website that displays images, descriptions and links.",
 			"url" : "https://github.com/celionelson/frontend-nanodegree-p1.git",
-			"img" : ""
+			"img" : "images/img-p1.png"
 		}
 	]
 };
@@ -196,27 +265,6 @@ if(projects.projects.length > 0) {
 	projects.display();
 };
 
-/*//Display mouse clicks position in console
-$(document).click(function(loc) {
-	var x = loc.pageX
-	var y = loc.pageY
-
-	logClicks(x,y);
-});
-
-//Display internationalize buttom
-$("#main").append(internationalizeButton);
-
-//Internationalize name
-function inName(name) {
-	
-	name = name.trim().split(" ");
-	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-	name[1] = name[1].toUpperCase();
-
-	return name[0] + " " + name[1];
-};
-
-console.log(inName("sebastian thrun"));*/
+//$("#main").append(internationalizeButton);
 
 $("#mapDiv").append(googleMap);
